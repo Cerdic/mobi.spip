@@ -1,0 +1,14 @@
+<plugin>
+	<nom>mobi.SPIP</nom>
+	<auteur>C&#233;dric [->http://yterium.net]</auteur>
+	<icon>prive/themes/spip/images/bluewhales-32.png</icon>
+	<licence>GNU/GPL</licence>
+	<version>0.1.0-dev</version>
+	<etat>dev</etat>
+	<description>Squelette Z pour mobile</description>
+	<prefix>mobispip</prefix>
+	<options>mobispip_options.php</options>
+	<categorie>squelette</categorie>
+	<necessite id="SPIP" version="[2.1.2;]" />
+	<necessite id="Zcore" version="[2.0.0-dev;]" />
+</plugin>
