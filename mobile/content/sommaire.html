@@ -1,0 +1,42 @@
+[*(#REM)
+ *
+ * Plugin mobiSPIP
+ *
+ * Distribue sous licence GPL
+ * (c) 2010 cedric
+ * Date: 10/12/10 - 22:49
+ *
+]
+
+<div id="homeheader">
+	<div id="logo">[(#LOGO_SITE_SPIP|image_reduire{50,200}|inserer_attribut{alt,#NOM_SITE_SPIP})]</div>
+	<h1 class="nom">#NOM_SITE_SPIP</h1>
+	<p class="desc">#DESCRIPTIF_SITE_SPIP</p>
+</div>
+
+
+<ul data-role="listview" data-inset="true" data-theme="d">
+	<BOUCLE_actus(ARTICLES) {!par date}{0,10}>
+		<li>
+			#LOGO_ARTICLE
+			<h3><a href="#URL_ARTICLE">(#TITRE|supprimer_numero)</a></h3>
+			[<p>(#INTRODUCTION|couper{80})</p>]
+		</li>
+	</BOUCLE_actus>
+</ul>
+
+
+<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b">
+	<li data-role="list-divider"><:ispip:sommaire:></li>
+
+	<BOUCLE_menu_princ(RUBRIQUES) {racine} {par num titre}>
+		[<li><a href="#URL_RUBRIQUE">(#TITRE|supprimer_numero)</a></li>]
+	</BOUCLE_menu_princ>
+
+	<li data-role="list-divider"><:mobispip:site:></li>
+	<BOUCLE_hasaut(AUTEURS) /><li><a href="#URL_PAGE{auteurs}"><:spip:icone_auteurs:></a> [(#TOTAL_BOUCLE|>{1}|oui)]<span class="ui-li-count">#TOTAL_BOUCLE</span></li><//B_hasaut>
+	<BOUCLE_hasmots(MOTS) /><li><a href="#URL_PAGE{mots}"><:mots_clefs:></a> <span class="ui-li-count">#TOTAL_BOUCLE</span></li><//B_hasmots>
+	<BOUCLE_hasbr(BREVES) /><li><a href="#URL_PAGE{breves}"><:breves:></a> <span class="ui-li-count">#TOTAL_BOUCLE</span></li><//B_hasbr>
+	[(#PLUGIN{agenda}|?{'
+'})<li><a href="#URL_PAGE{agenda}"><:mobispip:agenda:></a></li>]
+</ul>
