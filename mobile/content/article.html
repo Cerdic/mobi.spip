@@ -1,0 +1,96 @@
+[*(#REM)
+ *
+ * Plugin mobiSPIP
+ *
+ * Distribue sous licence GPL
+ * (c) 2010 cedric
+ * Date: 10/12/10 - 22:49
+ *
+]
+<BOUCLE_article(ARTICLES) {id_article}>
+	<div class="cartouche">
+		[<p class="surtitre">(#SURTITRE)</p>]
+		<h1>[(#TITRE|supprimer_numero)]</h1>
+		[<p class="soustitre">(#SOUSTITRE)</p>]
+		<p><small>[(#DATE|nom_jour) ][(#DATE|affdate)]<B_auteur_art1>, <:par_auteur:><BOUCLE_auteur_art1(AUTEURS) {id_article}><a href="#URL_AUTEUR">#NOM</a></BOUCLE_auteur_art1></small></p>
+		#MODELE{article_traductions}
+		[(#LOGO_ARTICLE||image_reduire{300,200})]
+	</div><!--.cartouche-->
+
+	[<div class="descriptif">(#DESCRIPTIF)</div>]
+	[<div class="chapo">(#CHAPO)</div>]
+	<br class="nettoyeur" />
+	[<p class="hyperlien"><:voir_en_ligne:> : <a href="(#URL_SITE)" class="spip_out" target="_self">[(#NOM_SITE|sinon{[(#URL_SITE|couper{80})]})]</a></p>]
+	[<div class="texte">(#TEXTE|image_reduire{300,200})</div>]
+
+	[(#REM) Portfolio : album d'images ]
+	<B_documents_portfolio>
+	<div id="documents_portfolio">
+		<h2><:info_portfolio:></h2>
+		<BOUCLE_documents_portfolio(DOCUMENTS) {id_article} {mode=document} {extension IN png,jpg,gif} {par num titre, date} {doublons}>
+		[<a
+href="#URL_DOCUMENT">(#FICHIER|copie_locale|image_reduire{0,100}|inserer_attribut{alt,[(#TITRE|supprimer_numero|attribut_html|couper{60})]})</a>]
+
+		</BOUCLE_documents_portfolio>
+	</div>
+	</B_documents_portfolio>
+	<BOUCLE_afficher_document(DOCUMENTS) {id_document} {id_article} {mode=document}{extension IN png,jpg,gif}>
+	<div class="spip_documents spip_documents_center" id="document_actif">
+		#EMBED_DOCUMENT
+		[<div class="spip_doc_titre">(#TITRE|supprimer_numero)</div>]
+		[<div class="spip_doc_descriptif">(#DESCRIPTIF)</div>]
+	</div>
+	</BOUCLE_afficher_document>
+
+	[<div class="ps"><h2><:info_ps:></h2>(#PS)</div>]
+
+	[(#REM) Autres documents joints a l'article ]
+	<B_documents_joints>
+	<div id="documents_joints">
+		<h2><:titre_documents_joints:></h2>
+		<form class="panel">
+		<ul>
+			<BOUCLE_documents_joints(DOCUMENTS) {id_article} {mode=document} {par num titre, date} {doublons}>
+			<li>
+				<a href="#URL_DOCUMENT" title="<:bouton_telecharger:>" type="#MIME_TYPE" target="_self" >[(#TITRE|supprimer_numero|sinon{<:info_document:>})]<br /><small>(#TYPE_DOCUMENT[ - (#TAILLE|taille_en_octets)])[ (#DESCRIPTIF)]</small></a>
+			</li>
+			</BOUCLE_documents_joints>
+		</ul>
+		</form>
+	</div>
+	</B_documents_joints>
+
+	[<div class="notes"><h2><:info_notes:></h2>(#NOTES)</div>]
+
+	<hr />
+
+	<B_auteur_art>
+		<ul data-role="listview" data-inset="true">
+			<li data-role="list-divider"><:mobispip:auteurs:></li>
+			<BOUCLE_auteur_art(AUTEURS) {id_article}>
+				<li><a href="#URL_AUTEUR">#NOM</a></li>
+			</BOUCLE_auteur_art>
+		</ul>
+	</B_auteur_art>
+
+	<B_rub_art>
+		<ul data-role="listview" data-inset="true">
+			<li data-role="list-divider"><:mobispip:meme_rubrique:></li>
+			<BOUCLE_rub_art(RUBRIQUES) {id_rubrique}>
+			<li><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></li>
+			</BOUCLE_rub_art>
+		</ul>
+	</B_rub_art>
+
+
+	[(#REM) MENU MOTS CLES ]
+	<B_mots_de_art>
+		<ul data-role="listview" data-inset="true">
+			<li data-role="list-divider"><:mots_clefs:></li>
+			<BOUCLE_mots_de_art(MOTS) {id_article}>
+				<li><a href="#URL_MOT">#TITRE</a></li>
+			</BOUCLE_mots_de_art>
+		</ul>
+	</B_mots_de_art>
+
+</BOUCLE_article>

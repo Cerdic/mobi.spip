@@ -9,7 +9,7 @@
 ]
 
 <div id="homeheader">
-	<div id="logo">[(#LOGO_SITE_SPIP|image_reduire{50,200}|inserer_attribut{alt,#NOM_SITE_SPIP})]</div>
+	<div id="logo">[(#LOGO_SITE_SPIP|image_reduire{50,200}|inserer_attribut{alt,[(#NOM_SITE_SPIP|attribut_html)]})]</div>
 	<h1 class="nom">#NOM_SITE_SPIP</h1>
 	<p class="desc">#DESCRIPTIF_SITE_SPIP</p>
 </div>
@@ -27,7 +27,7 @@
 
 
 <ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b">
-	<li data-role="list-divider"><:ispip:sommaire:></li>
+	<li data-role="list-divider"><:mobispip:sommaire:></li>
 
 	<BOUCLE_menu_princ(RUBRIQUES) {racine} {par num titre}>
 		[<li><a href="#URL_RUBRIQUE">(#TITRE|supprimer_numero)</a></li>]
@@ -40,3 +40,8 @@
 	[(#PLUGIN{agenda}|?{'
 '})<li><a href="#URL_PAGE{agenda}"><:mobispip:agenda:></a></li>]
 </ul>
+
+<div class="ui-grid-a">
+	<div class="ui-block-a"><a href="[(#URL_SITE_SPIP|parametre_url{var_mobi,no})]" data-role="button" data-icon="gear"><:mobispip:versionclassique:></a></div>
+	<div class="ui-block-b"><a href="http://www.spip-contrib.net" data-role="button" data-icon="mobispip"><:mobispip:mobiSPIP:></a></div>
+</div>
