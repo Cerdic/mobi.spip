@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<base href="#URL_SITE_SPIP/" />
 	[(#REM) Debut du head particulier a chaque page]
 	<INCLURE{fond=head/#ENV{type},env}>
 	[(#REM) Partie commune a toutes les pages, sans env]
@@ -9,7 +10,7 @@
 	<INCLURE{fond=head_js/#ENV{type},env}>
 
 </head>
-<body class="page_#ENV{type,page}[ #ENV{type,page}_(#ENV{composition,''})]">
+<body>
 <INCLURE{fond=body,env}>
 </body>
 </html>
