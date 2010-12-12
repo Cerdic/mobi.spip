@@ -1,0 +1,19 @@
+[*(#REM)
+ *
+ * Plugin mobiSPIP
+ *
+ * Distribue sous licence GPL
+ * (c) 2010 cedric
+ * Date: 10/12/10 - 22:49
+ *
+]
+
+<ul data-role="listview" data-theme="d">
+	<BOUCLE_mots(MOTS){par titre}{0,1000}>
+		[<li>
+			[(#LOGO_MOT|image_passe_partout{80,80}|image_recadre{80,80}|image_aplatir{jpg,ffffff})]
+			<h3><a href="#URL_MOT">(#TITRE)</a></h3>
+			[<p>(#DESCRIPTION|couper{80})</p>]
+		</li>]
+	</BOUCLE_mots>
+</ul>

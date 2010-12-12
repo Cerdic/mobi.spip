@@ -18,8 +18,8 @@
 <ul data-role="listview" data-inset="true" data-theme="d">
 	<BOUCLE_actus(ARTICLES) {!par date}{0,10}>
 		[<li>
-			#LOGO_ARTICLE
-			<h3><a href="#URL_ARTICLE">(#TITRE|supprimer_numero)</a></h3>
+			[(#LOGO_ARTICLE|image_passe_partout{80,80}|image_recadre{80,80}|image_aplatir{jpg,ffffff})]
+			<h3><a href="#URL_ARTICLE">(#TITRE)</a></h3>
 			[<p>(#INTRODUCTION|couper{80})</p>]
 		</li>]
 	</BOUCLE_actus>
@@ -30,7 +30,7 @@
 	<li data-role="list-divider"><:mobispip:sommaire:></li>
 
 	<BOUCLE_menu_princ(RUBRIQUES) {racine} {par num titre}>
-		[<li><a href="#URL_RUBRIQUE">(#TITRE|supprimer_numero)</a></li>]
+		[<li><a href="#URL_RUBRIQUE">(#TITRE)</a></li>]
 	</BOUCLE_menu_princ>
 
 	<li data-role="list-divider"><:mobispip:site:></li>

@@ -1,0 +1,19 @@
+[*(#REM)
+ *
+ * Plugin mobiSPIP
+ *
+ * Distribue sous licence GPL
+ * (c) 2010 cedric
+ * Date: 10/12/10 - 22:49
+ *
+]
+
+<ul data-role="listview" data-theme="d">
+	<BOUCLE_auteurs(AUTEURS){par nom}{0,1000}>
+		[<li>
+			[(#LOGO_AUTEUR|image_passe_partout{80,80}|image_recadre{80,80}|image_aplatir{jpg,ffffff})]
+			<h3><a href="#URL_AUTEUR">(#NOM)</a></h3>
+			[<p>(#BIO|couper{80})</p>]
+		</li>]
+	</BOUCLE_auteurs>
+</ul>
