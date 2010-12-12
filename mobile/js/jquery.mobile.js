@@ -3347,15 +3347,17 @@ $.fn.grid = function(options){
 				type: type,
 				data: data,
 				success: function( html ) {
-					setBaseURL(fileUrl);
 					var all = $("<div></div>");
 					//workaround to allow scripts to execute when included in page divs
 					all.get(0).innerHTML = html;
+					var base = all.find('base');
+					base = ((base.length?base.attr('href'):'') || fileUrl);
+					setBaseURL(base);
 					to = all.find('[data-role="page"]');
 
 					//rewrite src and href attrs to use a base url
 					if( !$.support.dynamicBaseTag ){
-						var baseUrl = getBaseURL(fileUrl);
+						var baseUrl = getBaseURL(base);
 						to.find('[src],link[href]').each(function(){
 							var thisAttr = $(this).is('[href]') ? 'href' : 'src',
 								thisUrl = $(this).attr(thisAttr);
