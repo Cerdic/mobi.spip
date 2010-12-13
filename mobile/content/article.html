@@ -10,7 +10,7 @@
 <BOUCLE_article(ARTICLES) {id_article}>
 	<div class="cartouche">
 		[<p class="surtitre">(#SURTITRE)</p>]
-		<h1>[(#TITRE|supprimer_numero)]</h1>
+		<h1>[(#TITRE)]</h1>
 		[<p class="soustitre">(#SOUSTITRE)</p>]
 		<p><small>[(#DATE|nom_jour) ][(#DATE|affdate)]<B_auteur_art1>, <:par_auteur:><BOUCLE_auteur_art1(AUTEURS) {id_article}><a href="#URL_AUTEUR">#NOM</a></BOUCLE_auteur_art1></small></p>
 		#MODELE{article_traductions}
@@ -37,7 +37,7 @@ href="#URL_DOCUMENT">(#FICHIER|copie_locale|image_reduire{0,100}|inserer_attribu
 	<BOUCLE_afficher_document(DOCUMENTS) {id_document} {id_article} {mode=document}{extension IN png,jpg,gif}>
 	<div class="spip_documents spip_documents_center" id="document_actif">
 		#EMBED_DOCUMENT
-		[<div class="spip_doc_titre">(#TITRE|supprimer_numero)</div>]
+		[<div class="spip_doc_titre">(#TITRE)</div>]
 		[<div class="spip_doc_descriptif">(#DESCRIPTIF)</div>]
 	</div>
 	</BOUCLE_afficher_document>
@@ -52,7 +52,7 @@ href="#URL_DOCUMENT">(#FICHIER|copie_locale|image_reduire{0,100}|inserer_attribu
 		<ul>
 			<BOUCLE_documents_joints(DOCUMENTS) {id_article} {mode=document} {par num titre, date} {doublons}>
 			<li>
-				<a href="#URL_DOCUMENT" title="<:bouton_telecharger:>" type="#MIME_TYPE" target="_self" >[(#TITRE|supprimer_numero|sinon{<:info_document:>})]<br /><small>(#TYPE_DOCUMENT[ - (#TAILLE|taille_en_octets)])[ (#DESCRIPTIF)]</small></a>
+				<a href="#URL_DOCUMENT" title="<:bouton_telecharger:>" type="#MIME_TYPE" target="_self" >[(#TITRE|sinon{<:info_document:>})]<br /><small>(#TYPE_DOCUMENT[ - (#TAILLE|taille_en_octets)])[ (#DESCRIPTIF)]</small></a>
 			</li>
 			</BOUCLE_documents_joints>
 		</ul>

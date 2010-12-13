@@ -1,0 +1,52 @@
+<BOUCLE_rub(RUBRIQUES){id_rubrique}>
+	<div class="cartouche">
+		<h1>[(#TITRE|supprimer_numero)]</h1>
+		[(#LOGO_ARTICLE||image_reduire{300,200})]
+		[<div class="descriptif">(#DESCRIPTIF)</div>]
+	</div><!--.cartouche-->
+
+	<ul data-role="listview" data-theme="d">
+		<BOUCLE_actus(ARTICLES) {id_rubrique}{!par date}{0,100}>
+			[<li>
+				[(#LOGO_ARTICLE|image_passe_partout{80,80}|image_recadre{80,80}|image_aplatir{jpg,ffffff})]
+				<h3><a href="#URL_ARTICLE">(#TITRE)</a></h3>
+				[<p>(#INTRODUCTION|couper{80})</p>]
+			</li>]
+		</BOUCLE_actus>
+	</ul>
+				
+	<br />
+
+	<B_sous_rub>
+		<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="d">
+			<li data-role="list-divider"><:sous_rubriques:></li>
+			<BOUCLE_sous_rub(RUBRIQUES) {id_parent}{par num titre}>
+				[<li><a href="#URL_RUBRIQUE">(#TITRE)</a></li>]
+			</BOUCLE_sous_rub>
+		</ul>
+	</B_sous_rub>
+
+
+	<B_act_list>
+		<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="d">
+			<li data-role="list-divider"><:breves:></li>
+			<BOUCLE_act_list(BREVES){id_rubrique}{!par date}{0,25}>
+				[<li><a href="#URL_BREVE">(#TITRE)</a></li>]
+			</BOUCLE_act_list>
+		</ul>
+	</B_act_list>
+
+
+	[(#REM) Documents joints a la rubrique ]
+	<B_documents_joints>
+		<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="d">
+			<li data-role="list-divider"><:titre_documents_joints:></li>
+			<BOUCLE_documents_joints(DOCUMENTS) {id_rubrique} {par num titre, date}>
+			<li>
+				<a href="#URL_DOCUMENT" title="<:bouton_telecharger:>" type="#MIME_TYPE" target="_self" >[(#TITRE|supprimer_numero|sinon{<:info_document:>})]<br /><small>(#TYPE_DOCUMENT[ - (#TAILLE|taille_en_octets)])[ (#DESCRIPTIF)]</small></a>
+			</li>
+			</BOUCLE_documents_joints>
+		</ul>
+	</B_documents_joints>
+
+</BOUCLE_rub>

@@ -9,6 +9,7 @@
  */
 
 define('_VERSION_MOBILE',!test_espace_prive());
+define('_NO_CACHE',1);
 
 if (defined('_VERSION_MOBILE') AND _VERSION_MOBILE) {
 	_chemin(_DIR_PLUGIN_MOBISPIP.'mobile');
