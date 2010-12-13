@@ -1,0 +1,30 @@
+[(#REM)
+
+Plugin xxx
+
+Distribue sous licence GPL
+(c) 2010 cedric
+Date: 14/12/10 - 00:19
+
+******************************]
+<BOUCLE_auteur(AUTEURS) {id_auteur}>
+	<div class="cartouche">
+		<h1>[(#NOM)]</h1>
+		[(#LOGO_AUTEUR||image_reduire{300,200})]
+	</div><!--.cartouche-->
+
+	[<div class="bio">(#BIO)</div>]
+
+	<B_aa>
+		<ul data-role="listview" data-inset="true" data-theme="d">
+			<BOUCLE_aa(ARTICLES) {!par date}{id_auteur}{0,100}>
+				[<li>
+					[(#LOGO_ARTICLE|image_passe_partout{80,80}|image_recadre{80,80}|image_aplatir{jpg,ffffff})]
+					<h3><a href="#URL_ARTICLE">(#TITRE)</a></h3>
+					[<p>(#INTRODUCTION|couper{80})</p>]
+				</li>]
+			</BOUCLE_aa>
+		</ul>
+	</B_aa>
+
+</BOUCLE_auteur>

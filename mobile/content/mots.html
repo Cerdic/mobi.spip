@@ -8,12 +8,16 @@
  *
 ]
 
-<ul data-role="listview" data-theme="d">
-	<BOUCLE_mots(MOTS){par titre}{0,1000}>
+<ul data-role="listview" data-theme="c" data-dividertheme="d">
+	<BOUCLE_groupes(GROUPES_MOTS){par titre}>
+	<B_mots>
+	<li data-role="list-divider">#TITRE</li>
+	<BOUCLE_mots(MOTS){id_groupe}{par titre}{0,1000}>
 		[<li>
 			[(#LOGO_MOT|image_passe_partout{80,80}|image_recadre{80,80}|image_aplatir{jpg,ffffff})]
 			<h3><a href="#URL_MOT">(#TITRE)</a></h3>
 			[<p>(#DESCRIPTION|couper{80})</p>]
 		</li>]
 	</BOUCLE_mots>
+	</BOUCLE_groupes>
 </ul>
