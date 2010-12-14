@@ -15,16 +15,7 @@
 </div>
 
 
-<ul data-role="listview" data-inset="true" data-theme="d">
-	<BOUCLE_actus(ARTICLES) {!par date}{0,10}>
-		[<li>
-			[(#LOGO_ARTICLE|image_passe_partout{80,80}|image_recadre{80,80}|image_aplatir{jpg,ffffff})]
-			<h3><a href="#URL_ARTICLE">(#TITRE)</a></h3>
-			[<p>(#INTRODUCTION|couper{80})</p>]
-		</li>]
-	</BOUCLE_actus>
-</ul>
-
+<INCLURE{fond=inclure/listes/articles,nb=10}>
 
 <ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="d">
 	<li data-role="list-divider"><:mobispip:sommaire:></li>

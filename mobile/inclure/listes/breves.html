@@ -1,0 +1,17 @@
+[(#REM)
+
+Plugin xxx
+
+Distribue sous licence GPL
+(c) 2010 cedric
+Date: 14/12/10 - 23:48
+
+******************************]
+<B_act_list>
+	<ul data-role="listview" [(#ENV{inset,1}|oui)data-inset="true"] data-theme="c" data-dividertheme="d">
+		<li data-role="list-divider"><:breves:></li>
+		<BOUCLE_act_list(BREVES){id_rubrique?}{id_mot?}{!par date}{0,25}>
+			[<li><a href="#URL_BREVE">(#TITRE)</a></li>]
+		</BOUCLE_act_list>
+	</ul>
+</B_act_list>

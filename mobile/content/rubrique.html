@@ -27,14 +27,7 @@
 	</B_sous_rub>
 
 
-	<B_act_list>
-		<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="d">
-			<li data-role="list-divider"><:breves:></li>
-			<BOUCLE_act_list(BREVES){id_rubrique}{!par date}{0,25}>
-				[<li><a href="#URL_BREVE">(#TITRE)</a></li>]
-			</BOUCLE_act_list>
-		</ul>
-	</B_act_list>
+	<INCLURE{fond=inclure/listes/breves,id_rubrique,env}>
 
 
 	[(#REM) Documents joints a la rubrique ]

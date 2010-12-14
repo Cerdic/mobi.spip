@@ -1,0 +1,18 @@
+[(#REM)
+
+Plugin xxx
+
+Distribue sous licence GPL
+(c) 2010 cedric
+Date: 14/12/10 - 23:54
+
+******************************]
+<ul data-role="listview" [(#ENV{inset,1}|oui)data-inset="true"] data-theme="d">
+	<BOUCLE_actus(ARTICLES) {!par date}{id_auteur?}{id_mot?}{0,#ENV{nb,100}}>
+		[<li>
+			[(#LOGO_ARTICLE|image_passe_partout{80,80}|image_recadre{80,80}|image_aplatir{jpg,ffffff})]
+			<h3><a href="#URL_ARTICLE">(#TITRE)</a></h3>
+			[<p>(#INTRODUCTION|couper{80})</p>]
+		</li>]
+	</BOUCLE_actus>
+</ul>

@@ -15,16 +15,6 @@ Date: 14/12/10 - 00:19
 
 	[<div class="bio">(#BIO)</div>]
 
-	<B_aa>
-		<ul data-role="listview" data-inset="true" data-theme="d">
-			<BOUCLE_aa(ARTICLES) {!par date}{id_auteur}{0,100}>
-				[<li>
-					[(#LOGO_ARTICLE|image_passe_partout{80,80}|image_recadre{80,80}|image_aplatir{jpg,ffffff})]
-					<h3><a href="#URL_ARTICLE">(#TITRE)</a></h3>
-					[<p>(#INTRODUCTION|couper{80})</p>]
-				</li>]
-			</BOUCLE_aa>
-		</ul>
-	</B_aa>
+	<INCLURE{fond=inclure/listes/articles,id_auteur}>
 
 </BOUCLE_auteur>

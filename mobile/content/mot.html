@@ -1,0 +1,23 @@
+[(#REM)
+
+Plugin xxx
+
+Distribue sous licence GPL
+(c) 2010 cedric
+Date: 14/12/10 - 00:19
+
+******************************]
+<BOUCLE_mot(MOTS) {id_mot}>
+	<div class="cartouche">
+		<h1>[(#TITRE)]</h1>
+		[(#LOGO_MOT||image_reduire{300,200})]
+	</div><!--.cartouche-->
+
+	[<div class="description">(#DESCRIPTION)</div>]
+
+	<INCLURE{fond=inclure/listes/articles,id_mot}>
+
+	<INCLURE{fond=inclure/listes/breves,id_mot,env}>
+
+
+</BOUCLE_mot>
