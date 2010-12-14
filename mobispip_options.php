@@ -8,11 +8,29 @@
  *
  */
 
-define('_VERSION_MOBILE',!test_espace_prive());
-define('_NO_CACHE',1);
+# Selecteur de version mobile
+# si &var_mobile=1 dans l'url, switcher sur la version mobile
+# si &var_mobile=0 dans l'url, switcher sur la version normale
+if (!is_null($mobile=_request('var_mobile'))){
+	include_spip('inc/cookie');
+	spip_setcookie('mobispip',$_COOKIE['mobispip'] = (($mobile=='oui' OR intval($mobile))?'mobile':'normal'));
+}
+// si pas de cookie, on tente une autodetection
+if (!isset($_COOKIE['mobispip'])){
+	include_spip("detect/mobile");
+	$mobile = (MobileDetect::getInstance()->isMobile() && !MobileDetect::getInstance()->isIpad());
+	include_spip('inc/cookie');
+	spip_setcookie('mobispip',$_COOKIE['mobispip'] = ($mobile?'mobile':'normal'));
+}
 
-if (defined('_VERSION_MOBILE') AND _VERSION_MOBILE) {
+if (!defined('_MOBISPIP'))
+	define('_MOBISPIP',$_COOKIE['mobispip']=='mobile' AND !test_espace_prive());
+
+if (_MOBISPIP) {
 	_chemin(_DIR_PLUGIN_MOBISPIP.'mobile');
   $GLOBALS['marqueur'].="mobispip:";
 	$GLOBALS['z_blocs'] = array('content','header','footer','head','head_js');
 }
+
+# debug
+define('_NO_CACHE',1);

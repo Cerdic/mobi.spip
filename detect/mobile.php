@@ -9,6 +9,9 @@
  *
  * @license    http://www.opensource.org/licenses/mit-license.php The MIT License
  *
+ * Complete User_Agent string :
+ * http://www.zytrax.com/tech/web/mobile_ids.html
+ *
  * example:
  *         $detect = MobileDetect::getInstance();
  *         if ($detect->isMobile()) { ... }
@@ -38,44 +41,15 @@ class MobileDetect {
   protected $device;
 
   /**
-   * @var boolean
+   * @var array
    */
+  protected $is           = array();
+
+	/**
+	 * @var boolean
+	 */
   protected $isMobile     = false;
 
-  /**
-   * @var boolean
-   */
-  protected $isAndroid    = null;
-
-  /**
-   * @var boolean
-   */
-  protected $isIphone     = null;
-
-  /**
-   * @var boolean
-   */
-  protected $isBlackberry = null;
-
-  /**
-   * @var boolean
-   */
-  protected $isOpera      = null;
-
-  /**
-   * @var boolean
-   */
-  protected $isPalm       = null;
-
-  /**
-   * @var boolean
-   */
-  protected $isWindows    = null;
-
-  /**
-   * @var boolean
-   */
-  protected $isGeneric    = null;
 
   /**
    * Available devices and their respective matching pattern
@@ -86,7 +60,8 @@ class MobileDetect {
       "android"    => "android",
       "blackberry" => "blackberry",
       "iphone"     => "(iphone|ipod)",
-      "opera"      => "opera mini",
+	    "ipad"       => "ipad",
+      "opera"      => "opera (mini|mobi)",
       "palm"       => "(avantgo|blazer|elaine|hiptop|palm|plucker|xiino)",
       "windows"    => "windows ce; (iemobile|ppc|smartphone)",
       "generic"    => "(kindle|mobile|mmp|midp|o2|pda|pocket|psp|symbian|smartphone|treo|up.browser|up.link|vodafone|wap)"
@@ -123,9 +98,9 @@ class MobileDetect {
   protected function isDevice($device) {
     $var = "is".ucfirst($device);
     $device = strtolower($device);
-    $return = is_null($this->$var) ? (bool) preg_match("/".$this->devices[$device]."/i", $this->userAgent) : $this->$var;
+    $return = (isset($this->is[$device]) ? $this->is[$device] : (bool) preg_match("/".$this->devices[$device]."/i", $this->userAgent));
     if ($device != 'generic' && $return == true) {
-      $this->isGeneric = false;
+      $this->is['generic'] = false;
     }
     return $return;
   }
@@ -149,7 +124,9 @@ class MobileDetect {
   }
 
   /**
-   * Overloads isAndroid() | isBlackberry() | isOpera() | isPalm() | isWindows() | isGeneric() through isDevice()
+   * Overloads isAndroid() | isBlackberry() | isOpera() | isPalm() | isWindows() | isGeneric()
+   * or every isXxxx() where xxxx is a known device in $devices
+   * through isDevice()
    *
    * @param string $name
    * @param array $arguments
