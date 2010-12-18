@@ -5,7 +5,8 @@
 $GLOBALS[$GLOBALS['idx_lang']] = array(
 'accueil' => 'accueil',
 'infos'=> 'Infos',
-'versionclassique' => 'Version classique du site',
+'version_classique' => 'Version classique du site',
+'version_mobile' => 'Version mobile du site',
 'mobispip' => 'mobi.SPIP',
 'annuler' => 'Annuler',
 'a_la_une' => '&Agrave; la une',

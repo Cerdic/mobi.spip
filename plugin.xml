@@ -9,6 +9,7 @@
 	<prefix>mobispip</prefix>
 	<options>mobispip_options.php</options>
 	<categorie>squelette</categorie>
+	<pipeline><nom>affichage_final</nom></pipeline>
 	<necessite id="SPIP" version="[2.1.2;]" />
 	<necessite id="Zcore" version="[2.0.0-dev;]" />
 </plugin>

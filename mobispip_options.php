@@ -32,5 +32,12 @@ if (_MOBISPIP) {
 	$GLOBALS['z_blocs'] = array('content','header','footer','head','head_js');
 }
 
+function mobispip_affichage_final($texte){
+	if (!_MOBISPIP AND strpos($texte,'mobispiplink')===false
+	  AND $p=strpos($texte,'</body>')){
+		$texte = substr_replace($texte,recuperer_fond('inc-mobispip-link'),$p,0);
+	}
+  return $texte;
+}
 # debug
 define('_NO_CACHE',1);
