@@ -1,3 +1,7 @@
 .ui-mobile .page_sommaire.ui-content {background:#E5E5E5 url("images/bg-home.png") repeat-x center top;}
 .ui-mobile .page_sommaire #homeheader {text-align:center;}
 .ui-icon-mobispip {background-image:url(images/bluewhales-16.png);}
+.ui-footer .search_block {padding:0 5px;text-align:center;}
+.ui-footer .search_block .ui-input-search {margin:0 auto;}
+.ui-footer .search_block label {display:none;}
+.ui-footer .rapide .ui-btn {display: block;margin:5px;}

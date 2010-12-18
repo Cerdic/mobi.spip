@@ -1,0 +1,53 @@
+[(#REM)
+
+Plugin xxx
+
+Distribue sous licence GPL
+(c) 2010 cedric
+Date: 18/12/10 - 10:58
+
+******************************]
+[<div class="cartouche">
+	<h1><:resultats_recherche:></h1>
+	<p class="soustitre">&#171;&nbsp;(#RECHERCHE)&nbsp;&#187;</p>
+</div>]
+
+[(#REM) Articles trouves ]
+<INCLURE{fond=inclure/listes/articles,recherche,par=points,nb=10}>
+
+<ul data-role="listview" data-inset="true" data-theme="c">
+
+	[(#REM) Rubriques trouvees ]
+	<B_rubriques>
+		<li data-role="list-divider"><:rubriques:> <span class="ui-li-count">#GRAND_TOTAL</span></li>
+		<BOUCLE_rubriques(RUBRIQUES) {recherche} {!par points} {pagination 5}>
+		<li><a href="#URL_RUBRIQUE">#TITRE</a></li>
+		</BOUCLE_rubriques>
+	</B_rubriques>
+
+	[(#REM) Mots-cles trouves ]
+	<B_mots>
+		<li data-role="list-divider"><:mots_clefs:> <span class="ui-li-count">#GRAND_TOTAL</span></li>
+		<BOUCLE_mots(MOTS) {recherche} {par points}{inverse} {pagination 5}>
+		<li><a href="#URL_MOT">#TITRE</a></li>
+		</BOUCLE_mots>
+	</B_mots>
+
+
+	[(#REM) Breves trouvees ]
+	<B_breves>
+		<li data-role="list-divider"><:breves:> <span class="ui-li-count">#GRAND_TOTAL</span></li>
+		<BOUCLE_breves(BREVES) {recherche} {par points}{inverse} {pagination 5}>
+		<li><a href="#URL_BREVE">#TITRE</a></li>
+		</BOUCLE_breves>
+	</B_breves>
+
+
+	[(#REM) Sites web trouves ]
+	<B_sites>
+		<li data-role="list-divider"><:sites_web:> <span class="ui-li-count">#GRAND_TOTAL</span></li>
+		<BOUCLE_sites(SITES) {recherche} {par points}{inverse} {pagination 5}>
+		<li><a href="[(#ID_SYNDIC|generer_url_entite{site,'','',#CONNECT})]">#NOM_SITE</a></li>
+		</BOUCLE_sites>
+	</B_sites>
+</ul>

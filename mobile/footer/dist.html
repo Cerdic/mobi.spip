@@ -7,4 +7,14 @@ Distribue sous licence GPL
 Date: 10/12/10 - 22:55
 
 ******************************]
-<a href="[(#URL_SITE_SPIP)]" data-role="button" data-icon="grid"><:mobispip:accueil:></a>
+<div class="search_block">
+	<form action="#URL_PAGE{recherche}" method="post">
+		<div data-role="fieldcontain">
+		<label for="search">Rechercher</label>
+		<input type="search" name="recherche" id="search" value="#ENV{recherche,''}" />
+		</div>
+	</form>
+</div>
+<div class="rapide">
+	<a href="[(#SELF|parametre_url{var_mobile,non})]" rel="external" data-inline="false"><:mobispip:versionclassique:></a>
+</div>

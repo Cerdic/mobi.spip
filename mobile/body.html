@@ -1,13 +1,13 @@
-<div data-role="page" data-theme="b">
-	<div data-role="header" class="page_#ENV{type,page}[ #ENV{type,page}_(#ENV{composition,''})]">
+<div data-role="page" data-theme="b" data-back-btn-text="<:mobispip:retour:>">
+	<div data-role="header" class="header page_#ENV{type,page}[ #ENV{type,page}_(#ENV{composition,''})]">
 		<INCLURE{fond=header/#ENV{type},env}>
 	</div>
 
-	<div data-role="content" class="page_#ENV{type,page}[ #ENV{type,page}_(#ENV{composition,''})]">
+	<div data-role="content" class="content page_#ENV{type,page}[ #ENV{type,page}_(#ENV{composition,''})]">
 		<INCLURE{fond=content/#ENV{type},env}>
 	</div>
 
-	<div data-role="footer" class="page_#ENV{type,page}[ #ENV{type,page}_(#ENV{composition,''})]">
+	<div data-role="footer" class="footer page_#ENV{type,page}[ #ENV{type,page}_(#ENV{composition,''})]">
 		<INCLURE{fond=footer/#ENV{type},env}>
 	</div>
 </div>
