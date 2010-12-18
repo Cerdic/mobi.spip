@@ -3,7 +3,7 @@
 	<auteur>C&#233;dric [->http://yterium.net]</auteur>
 	<icon>prive/themes/spip/images/bluewhales-32.png</icon>
 	<licence>GNU/GPL</licence>
-	<version>0.1.0-dev</version>
+	<version>0.2.0-dev</version>
 	<etat>dev</etat>
 	<description>Squelette Z pour mobile</description>
 	<prefix>mobispip</prefix>

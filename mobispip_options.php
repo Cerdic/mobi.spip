@@ -33,7 +33,13 @@ if (_MOBISPIP) {
 }
 
 function mobispip_affichage_final($texte){
-	if (!_MOBISPIP AND strpos($texte,'mobispiplink')===false
+	if (_MOBISPIP){
+		if (strpos($texte,'spip-admin-bloc')!==false){
+			$texte = str_replace("spip-admin-bloc","mobispip-admin-bloc",$texte);
+			$texte = preg_replace(",spip-admin-bouton([^>]*)>,","mobispip-admin-bouton$1 rel=\"external\" data-theme=\"e\">",$texte);
+		}
+	}
+	elseif (strpos($texte,'mobispiplink')===false
 	  AND $p=strpos($texte,'</body>')){
 		$texte = substr_replace($texte,recuperer_fond('inc-mobispip-link'),$p,0);
 	}
