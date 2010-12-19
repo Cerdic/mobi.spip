@@ -2982,10 +2982,10 @@ $.fn.grid = function(options){
 		$metaViewport = $.mobile.metaViewportContent ? $("<meta>", { name: "viewport", content: $.mobile.metaViewportContent}).prependTo( $head ) : undefined,
 
 		//define baseUrl for use in relative url management
-		baseUrl = getPathDir( location.protocol + '//' + location.host + location.pathname ),
+		baseUrl = $('base',$head).length ? $('base',$head).attr('href') : getPathDir( location.protocol + '//' + location.host + location.pathname ),
 
 		//define base element, for use in routing asset urls that are referenced in Ajax-requested markup
-		$base = $.support.dynamicBaseTag ? $("<base>", { href: baseUrl }).prependTo( $head ) : undefined,
+		$base = $.support.dynamicBaseTag ? ( $('base',$head).length ? $('base',$head) : $("<base>", { href: baseUrl }).prependTo( $head ) ) : undefined,
 
 		//will be defined as first page element in DOM
 		$startPage,
@@ -3049,17 +3049,24 @@ $.fn.grid = function(options){
 		return newPath.join('/') + (newPath.length ? '/' : '');
 	}
 
+	var dynamiqueBaseUrl = '';
 	function getBaseURL( nonHashPath ){
-		return getPathDir( nonHashPath || location.hash );
+		if (nonHashPath)
+			nonHashPath = nonHashPath.replace( location.protocol + "//" + location.host, "");
+		return getPathDir( nonHashPath || dynamiqueBaseUrl || location.hash );
 	}
 
-	var setBaseURL = !$.support.dynamicBaseTag ? $.noop : function( nonHashPath ){
-		//set base url for new page assets
-		$base.attr('href', baseUrl + getBaseURL( nonHashPath ));
+	var setBaseURL = function( nonHashPath ){
+		dynamiqueBaseUrl = nonHashPath.replace( location.protocol + "//" + location.host, "");
+		if ($.support.dynamicBaseTag)
+			//set base url for new page assets
+			$base.attr('href', baseUrl + getBaseURL( nonHashPath ));
 	}
 
-	var resetBaseURL = !$.support.dynamicBaseTag ? $.noop : function(){
-		$base.attr('href', baseUrl);
+	var resetBaseURL = function(){
+		dynamiqueBaseUrl = baseUrl.replace( location.protocol + "//" + location.host, "");
+		if ($.support.dynamicBaseTag)
+			$base.attr('href', baseUrl);
 	}
 
 	//set base href to pathname
@@ -3328,8 +3335,9 @@ $.fn.grid = function(options){
 
 		// find the "to" page, either locally existing in the dom or by creating it through ajax
 		if ( to.length && !isFormRequest ) {
-			if( fileUrl ){
-				setBaseURL(fileUrl);
+			var base = to.attr('data-base') || fileUrl;
+			if( base ){
+				setBaseURL(base);
 			}
 			enhancePage();
 			transitionPages();
@@ -3351,7 +3359,13 @@ $.fn.grid = function(options){
 					//workaround to allow scripts to execute when included in page divs
 					all.get(0).innerHTML = html;
 					var base = all.find('base');
-					base = ((base.length?base.attr('href'):'') || fileUrl);
+					if (base.length)
+						base = base.attr('href');
+					else
+						// workaround : safari deletes head section when injecting in <div></div>
+						if (base=html.match(/<base [^>]*href=["']([^"']+)["']/i))
+							base = base[1];
+					base = (base || fileUrl);
 					setBaseURL(base);
 					to = all.find('[data-role="page"]');
 
@@ -3370,6 +3384,8 @@ $.fn.grid = function(options){
 							}
 						});
 					}
+
+					to.attr('data-base',base);
 
 					//preserve ID on a retrieved page
 					if ( to.attr('id') ) {
