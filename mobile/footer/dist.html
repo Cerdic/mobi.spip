@@ -16,6 +16,11 @@ Date: 10/12/10 - 22:55
 	</form>
 </div>
 <div class="rapide">
-	<a href="[(#SELF|parametre_url{var_mobile,non})]" rel="external" data-inline="false"><:mobispip:version_classique:></a>
+	<a href="[(#SELF|parametre_url{var_mobile,non})]" rel="external"><:mobispip:version_classique:></a>
+	<?php if (!$GLOBALS['visiteur_session']['statut']) { ?>
+	<a href="[(#URL_PAGE{login}|parametre_url{url,#SELF})]" rel="nofollow" data-theme="c"><:lien_connecter:></a>
+	<?php }  else { ?>
+	<a href="#URL_LOGOUT" rel="external" data-theme="c"><:icone_deconnecter:></a>
+	<?php } ?>
 </div>
 #FORMULAIRE_ADMIN

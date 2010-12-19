@@ -7,3 +7,68 @@
 .ui-footer .rapide .ui-btn {display: block;margin:5px;}
 .mobispip-admin-bloc {margin-top:30px;}
 .mobispip-admin-bloc .ui-btn {display: block;margin:5px;}
+
+.formulaire_spip legend {font-weight:bold;}
+.formulaire_spip ul {list-style:none;margin:0;padding:10px 0;}
+.formulaire_spip li {padding:5px 0;list-style:none;margin:0;}
+.formulaire_spip li.erreur {
+	color:#333;
+	border-color: #C30;
+	background:#FFD0BF;
+}
+.formulaire_spip li .erreur_message {color:red;}
+
+.formulaire_spip .reponse_formulaire {
+	border:2px solid;
+	color:#333;
+	font-weight: normal;
+	padding:5px;
+	padding-left:40px;
+	min-height:24px;
+	margin-bottom:1em;
+}
+.formulaire_spip .reponse_formulaire_ok {
+	border-color: #53AD20;
+	background:#E0FFCF;
+}
+.formulaire_spip .reponse_formulaire_erreur {
+	border-color: #C30;
+	background:#FFD0BF;
+}
+
+
+.error,.success,.notice {
+	border:2px solid;
+	color:#333;
+	font-weight: normal;
+	padding:5px;
+	padding-left:40px;
+	min-height:24px;
+	margin-bottom:1em;
+}
+.success{
+	border-color: #C6D880;
+	background:#E6EFC2;
+	color : #264409;
+}
+.error {
+	border-color: #FBC2C4;
+	background:#FBE3E4;
+	color : #8A1F11;
+}
+.notice {
+	border-color: #FFD324;
+	background:#FFF6BF;
+	color : #514721;
+}
+
+
+.formulaire_login {position:relative;}
+.formulaire_login fieldset {margin-top:20px;}
+.formulaire_login fieldset legend {display:none;}
+.formulaire_login .editer_password {position:relative;}
+.formulaire_login .editer_password #pass_securise {position:absolute;top:5px;right:5px;}
+.formulaire_login .details {display:block;padding:10px;text-align:right;}
+.formulaire_login .editer_session {display:none;}
+.page_login .madewithspip {text-align:center;padding:20px 0 0;}
+#spip_logo_auteur {display:none;}

@@ -1,0 +1,26 @@
+[(#REM)
+
+Plugin xxx
+
+Distribue sous licence GPL
+(c) 2010 cedric
+Date: 19/12/10 - 15:58
+
+******************************]
+<h1>#NOM_SITE_SPIP</h1>
+
+[(#REM)
+	Est-ce qu'on se connecte a l'espace prive ou pas ?
+]
+[(#ENV{url}|=={''}|?{#SET{prive,' '}})]
+[(#ENV{url}|match{^#EVAL{_DIR_RESTREINT_ABS}}|?{#SET{prive,' '}})]
+[(#GET{prive}) <h3 class="spip"><:login_acces_prive:></h3>]
+
+
+#MENU_LANG_ECRIRE
+
+[(#FORMULAIRE_LOGIN{#ENV{url}|sinon{#URL_ECRIRE{accueil}}})]
+
+<p class="madewithspip">
+	<a href="http://www.spip.net/" title="<:site_realise_avec_spip:>" rel="external"><img src="#CHEMIN{spip.png}" alt="SPIP" width="48" height="16" /></a>
+</p>
