@@ -1,4 +1,4 @@
-<plugin>
+<plugin version="[2.1.2;]">
 	<nom>mobi.SPIP</nom>
 	<auteur>C&#233;dric [->http://yterium.net]</auteur>
 	<icon>prive/themes/spip/images/bluewhales-32.png</icon>

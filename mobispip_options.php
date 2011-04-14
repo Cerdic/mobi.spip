@@ -27,9 +27,11 @@ if (!defined('_MOBISPIP'))
 	define('_MOBISPIP',$_COOKIE['mobispip']=='mobile' AND !test_espace_prive());
 
 if (_MOBISPIP) {
-	_chemin(_DIR_PLUGIN_MOBISPIP.'mobile');
+	//_chemin(_DIR_PLUGIN_MOBISPIP.'mobile');
   $GLOBALS['marqueur'].="mobispip:";
 	$GLOBALS['z_blocs'] = array('content','header','footer','head','head_js');
+	define('_ZPIP',true);
+	define('_Z_PREPEND_PATH','mobile/');
 }
 
 function mobispip_affichage_final($texte){
@@ -46,4 +48,4 @@ function mobispip_affichage_final($texte){
   return $texte;
 }
 # debug
-define('_NO_CACHE',1);
+#define('_NO_CACHE',1);
