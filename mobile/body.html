@@ -1,13 +1,13 @@
-<div data-role="page" data-theme="b" data-back-btn-text="<:mobispip:retour:>">
-	<div data-role="header" class="header page_#ENV{type,page}[ #ENV{type,page}_(#ENV{composition,''})]">
-		<INCLURE{fond=header/#ENV{type},env}>
+<div data-role="page" data-back-btn-text="<:mobispip:retour:>"[ data-theme="(#CONFIG{mobispip/theme_page})"][ data-content-theme="(#CONFIG{mobispip/theme_page})"]>
+	<div data-role="header"  class="header page_#ENV{type-page,page}[ #ENV{type-page,page}_(#ENV{composition,''})]"[ data-theme="(#CONFIG{mobispip/theme_page})"] >
+		<INCLURE{fond=header/#ENV{type-page},env}>
 	</div>
 
-	<div data-role="content" class="content page_#ENV{type,page}[ #ENV{type,page}_(#ENV{composition,''})]">
-		<INCLURE{fond=content/#ENV{type},env}>
+	<div data-role="content" class="content page_#ENV{type-page,page}[ #ENV{type-page,page}_(#ENV{composition,''})]" [ data-theme="(#CONFIG{mobispip/theme_page})"][ data-content-theme="(#CONFIG{mobispip/theme_page})"]>
+		<INCLURE{fond=content/#ENV{type-page},env}>
 	</div>
 
-	<div data-role="footer" class="footer page_#ENV{type,page}[ #ENV{type,page}_(#ENV{composition,''})]">
-		<INCLURE{fond=footer/#ENV{type},env}>
+	<div data-role="footer"  class="footer page_#ENV{type-page,page}[ #ENV{type-page,page}_(#ENV{composition,''})]" [ data-theme="(#CONFIG{mobispip/theme_page})"]>
+		<INCLURE{fond=footer/#ENV{type-page},env}>
 	</div>
 </div>

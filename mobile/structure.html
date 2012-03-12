@@ -3,9 +3,9 @@
 <head>
 	<base href="#URL_SITE_SPIP/" />
 	[(#REM) Debut du head particulier a chaque page]
-	<INCLURE{fond=head/#ENV{type},env}>
+	<INCLURE{fond=head/#ENV{type-page},env}>
 	[(#REM) Partie commune a toutes les pages, sans env]
-	<INCLURE{fond=inclure/head}>
+	<INCLURE{fond=inclure/head,env}>
 </head>
 <body>
 <INCLURE{fond=body,env}>
