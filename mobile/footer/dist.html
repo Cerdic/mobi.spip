@@ -15,12 +15,24 @@ Date: 10/12/10 - 22:55
 		</div>
 	</form>
 </div>
-<div class="rapide">
-	<a href="[(#SELF|parametre_url{var_mobile,non})]" rel="external"><:mobispip:version_classique:></a>
-	<?php if (!$GLOBALS['visiteur_session']['statut']) { ?>
-	<a href="[(#URL_PAGE{login}|parametre_url{url,#SELF})]" rel="nofollow" data-theme="c"><:lien_connecter:></a>
-	<?php }  else { ?>
-	<a href="#URL_LOGOUT" rel="external" data-theme="c"><:icone_deconnecter:></a>
-	<?php } ?>
-</div>
+<div class="rapide"  data-role="navbar">
+	<ul>
+		<li>
+			<a href="#URL_PAGE{plan}"><:plan_site:></a>
+		</li>
+		<li>
+			<a href="[(#SELF|parametre_url{var_mobile,non})]" rel="external"><:mobispip:version_classique:></a>
+		</li>
+		[(#SESSION{id_auteur}|non)
+		<li>
+			<a href="[(#URL_PAGE{login}|parametre_url{url,#SELF})]" rel="nofollow" data-theme="c"><:lien_connecter:></a>
+		</li>
+		]
+		[(#SESSION{id_auteur}|oui)
+		<li>
+			<a href="#URL_LOGOUT" rel="external" data-theme="c"><:icone_deconnecter:></a>
+		</li>
+		]
+	</ul>
 #FORMULAIRE_ADMIN
+</div>
