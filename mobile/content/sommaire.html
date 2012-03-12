@@ -26,7 +26,7 @@
 	<li data-role="list-divider"><:mobispip:site:></li>
 	<BOUCLE_hasaut(AUTEURS) /><li><a href="#URL_PAGE{auteurs}"><:spip:icone_auteurs:></a> [(#TOTAL_BOUCLE|>{1}|oui)]<span class="ui-li-count">#TOTAL_BOUCLE</span></li><//B_hasaut>
 	<BOUCLE_hasmots(MOTS) /><li><a href="#URL_PAGE{mots}"><:mots_clefs:></a> <span class="ui-li-count">#TOTAL_BOUCLE</span></li><//B_hasmots>
-	<BOUCLE_hasbr(BREVES) /><li><a href="#URL_PAGE{breves}"><:breves:></a> <span class="ui-li-count">#TOTAL_BOUCLE</span></li><//B_hasbr>
+	<BOUCLE_hasbr(BREVES) /><li><a href="#URL_PAGE{breves}"><:mobispip:breves:></a> <span class="ui-li-count">#TOTAL_BOUCLE</span></li><//B_hasbr>
 	[(#PLUGIN{agenda}|?{'
 '})<li><a href="#URL_PAGE{agenda}"><:mobispip:agenda:></a></li>]
 </ul>
