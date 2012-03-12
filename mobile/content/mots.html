@@ -14,9 +14,11 @@
 	<li data-role="list-divider">#TITRE</li>
 	<BOUCLE_mots(MOTS){id_groupe}{par titre}{0,1000}>
 		[<li>
-			[(#LOGO_MOT|image_passe_partout{80,80}|image_recadre{80,80}|image_aplatir{jpg,ffffff})]
-			<h3><a href="#URL_MOT">(#TITRE)</a></h3>
-			[<p>(#DESCRIPTION|couper{80})</p>]
+			<a href="#URL_MOT">
+				[(#LOGO_MOT|image_passe_partout{80,80}|image_recadre{80,80}|image_aplatir{jpg,ffffff})]
+				<h3>(#TITRE)</h3>
+				[<p>(#DESCRIPTION|couper{80})</p>]
+			</a>
 		</li>]
 	</BOUCLE_mots>
 	</BOUCLE_groupes>
