@@ -8,7 +8,7 @@ Date: 14/12/10 - 23:48
 
 ******************************]
 <B_act_list>
-	<ul data-role="listview" [(#ENV{inset,1}|oui)data-inset="true"][ data-theme="(#CONFIG{mobispip/theme_liste})"][ data-divider-theme="(#CONFIG{mobispip/theme_divider})"]>
+	<ul data-role="listview"[ (#CONFIG{mobispip/theme_liste_inset}|oui) data-inset="true"][ data-theme="(#CONFIG{mobispip/theme_liste})"][ data-divider-theme="(#CONFIG{mobispip/theme_divider})"]>
 		<li data-role="list-divider"><:mobispip:breves:></li>
 		<BOUCLE_act_list(BREVES){id_rubrique?}{id_mot?}{!par date}{0,25}>
 			[<li><a href="#URL_BREVE">(#TITRE)</a></li>]

@@ -15,7 +15,7 @@ Date: 18/12/10 - 10:58
 [(#REM) Articles trouves ]
 <INCLURE{fond=inclure/listes/articles,recherche,par=points,nb=10}>
 
-<ul data-role="listview" data-inset="true"[ data-theme="(#CONFIG{mobispip/theme_liste})"][ data-divider-theme="(#CONFIG{mobispip/theme_divider})"]>
+<ul data-role="listview"[ (#CONFIG{mobispip/theme_liste_inset}|oui) data-inset="true"][ data-theme="(#CONFIG{mobispip/theme_liste})"][ data-divider-theme="(#CONFIG{mobispip/theme_divider})"]>
 
 	[(#REM) Rubriques trouvees ]
 	<B_rubriques>

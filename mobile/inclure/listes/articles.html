@@ -7,7 +7,7 @@ Distribue sous licence GPL
 Date: 14/12/10 - 23:54
 
 ******************************]
-<ul data-role="listview" [(#ENV{inset,1}|oui)data-inset="true"][ data-theme="(#CONFIG{mobispip/theme_liste})"][ data-divider-theme="(#CONFIG{mobispip/theme_divider})"]>
+<ul data-role="listview"[ (#CONFIG{mobispip/theme_liste_inset}|oui) data-inset="true"][ data-theme="(#CONFIG{mobispip/theme_liste})"][ data-divider-theme="(#CONFIG{mobispip/theme_divider})"]>
 	[<li data-role="list-divider">(#ENV{titre,''})</li>]
 	<BOUCLE_actus(ARTICLES) {!par #ENV{par,date}}{id_auteur?}{id_mot?}{recherche?}{0,#ENV{nb,100}}>
 		[<li>
