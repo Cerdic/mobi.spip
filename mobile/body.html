@@ -1,5 +1,5 @@
 <div data-role="page" data-back-btn-text="<:mobispip:retour:>"[ data-theme="(#CONFIG{mobispip/theme_page})"][ data-content-theme="(#CONFIG{mobispip/theme_page})"]>
-	<div data-role="header"  class="header page_#ENV{type-page,page}[ #ENV{type-page,page}_(#ENV{composition,''})]"[ data-theme="(#CONFIG{mobispip/theme_page})"] >
+	<div data-role="header"  class="header page_#ENV{type-page,page}[ #ENV{type-page,page}_(#ENV{composition,''})]"[ data-theme="(#CONFIG{mobispip/theme_header})"] >
 		<INCLURE{fond=header/#ENV{type-page},env}>
 	</div>
 
@@ -7,7 +7,7 @@
 		<INCLURE{fond=content/#ENV{type-page},env}>
 	</div>
 
-	<div data-role="footer"  class="footer page_#ENV{type-page,page}[ #ENV{type-page,page}_(#ENV{composition,''})]" [ data-theme="(#CONFIG{mobispip/theme_page})"]>
+	<div data-role="footer"  class="footer page_#ENV{type-page,page}[ #ENV{type-page,page}_(#ENV{composition,''})]" [ data-theme="(#CONFIG{mobispip/theme_footer})"]>
 		<INCLURE{fond=footer/#ENV{type-page},env}>
 	</div>
 </div>

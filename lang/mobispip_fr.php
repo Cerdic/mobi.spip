@@ -15,6 +15,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// C
 	'config_theme' => 'Configuration du thème',
+	'config_theme_header' => 'Thème de l\'entête',
+	'config_theme_footer' => 'Thème du pied de page',
 	'config_theme_page' => 'Thème des pages',
 	'config_theme_liste' => 'Thème des listes',
 	'config_theme_inset' => 'Arrondis sur les listes',
