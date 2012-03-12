@@ -1,0 +1,58 @@
+<!-- autoriser=webmestre -->
+<!-- nom=mobispip -->
+<div class="formulaire_spip formulaire_editer formulaire_#FORM">
+	[
+	<p class="confirm reponse_formulaire reponse_formulaire_ok">
+		(#ENV*{message_ok})
+	</p>
+	]
+	[
+	<p class="error reponse_formulaire reponse_formulaire_erreur">
+		(#ENV*{message_erreur})
+	</p>
+	]
+	<form method="post" action="#ENV{action}" id="formulaire#FORM">
+		<div>
+			#ACTION_FORMULAIRE{#ENV{action}}
+			<fieldset>
+				<legend>
+					<:mobispip:config_theme:>
+				</legend>
+				<ul>
+					<li class="editer editer_theme_page">
+						<label><:mobispip:config_theme_page:></label>
+						<select name="theme_page">
+							<option value="a"[ selected="(#CONFIG{mobispip/theme_page}|=={a}|?{selected})"]>Thème A</option>
+							<option value="b"[ selected="(#CONFIG{mobispip/theme_page}|=={b}|?{selected})"]>Thème B</option>
+							<option value="c"[ selected="(#CONFIG{mobispip/theme_page}|=={c}|?{selected})"]>Thème C</option>
+							<option value="d"[ selected="(#CONFIG{mobispip/theme_page}|=={d}|?{selected})"]>Thème D</option>
+							<option value="e"[ selected="(#CONFIG{mobispip/theme_page}|=={e}|?{selected})"]>Thème E</option>
+						</select>
+					</li>
+					<li class="editer editer_theme_liste">
+						<label><:mobispip:config_theme_liste:></label>
+						<select name="theme_liste">
+							<option value="a"[ selected="(#CONFIG{mobispip/theme_liste}|=={a}|?{selected})"]>Thème A</option>
+							<option value="b"[ selected="(#CONFIG{mobispip/theme_liste}|=={b}|?{selected})"]>Thème B</option>
+							<option value="c"[ selected="(#CONFIG{mobispip/theme_liste}|=={c}|?{selected})"]>Thème C</option>
+							<option value="d"[ selected="(#CONFIG{mobispip/theme_liste}|=={d}|?{selected})"]>Thème D</option>
+							<option value="e"[ selected="(#CONFIG{mobispip/theme_liste}|=={e}|?{selected})"]>Thème E</option>
+						</select>
+					</li>
+					<li class="editer editer_theme_divider">
+						<label><:mobispip:config_theme_liste:></label>
+						<select name="theme_divider">
+							<option value="a"[ selected="(#CONFIG{mobispip/theme_divider}|=={a}|?{selected})"]>Thème A</option>
+							<option value="b"[ selected="(#CONFIG{mobispip/theme_divider}|=={b}|?{selected})"]>Thème B</option>
+							<option value="c"[ selected="(#CONFIG{mobispip/theme_divider}|=={c}|?{selected})"]>Thème C</option>
+							<option value="d"[ selected="(#CONFIG{mobispip/theme_divider}|=={d}|?{selected})"]>Thème D</option>
+							<option value="e"[ selected="(#CONFIG{mobispip/theme_divider}|=={e}|?{selected})"]>Thème E</option>
+						</select>
+					</li>
+				</ul>
+			</fieldset>
+			<p class="boutons">
+				<input type="submit" name="ok" value="<:bouton_enregistrer:>" class="submit"/>
+			</p>
+		</div>
+	</form>
