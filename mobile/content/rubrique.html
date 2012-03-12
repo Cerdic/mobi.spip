@@ -5,7 +5,7 @@
 		[<div class="descriptif">(#DESCRIPTIF)</div>]
 	</div><!--.cartouche-->
 
-	<ul data-role="listview" data-theme="d">
+	<ul data-role="listview"[ data-theme="(#CONFIG{mobispip/theme_liste})"][ data-divider-theme="(#CONFIG{mobispip/theme_divider})"]>
 		<BOUCLE_actus(ARTICLES) {id_rubrique}{!par date}{0,100}>
 			[<li>
 				[(#LOGO_ARTICLE|image_passe_partout{80,80}|image_recadre{80,80}|image_aplatir{jpg,ffffff})]
@@ -18,7 +18,7 @@
 	<br />
 
 	<B_sous_rub>
-		<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="d">
+		<ul data-role="listview" data-inset="true"[ data-theme="(#CONFIG{mobispip/theme_liste})"][ data-divider-theme="(#CONFIG{mobispip/theme_divider})"]>
 			<li data-role="list-divider"><:sous_rubriques:></li>
 			<BOUCLE_sous_rub(RUBRIQUES) {id_parent}{par num titre}>
 				[<li><a href="#URL_RUBRIQUE">(#TITRE)</a></li>]
@@ -32,7 +32,7 @@
 
 	[(#REM) Documents joints a la rubrique ]
 	<B_documents_joints>
-		<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="d">
+		<ul data-role="listview" data-inset="true"[ data-theme="(#CONFIG{mobispip/theme_liste})"][ data-divider-theme="(#CONFIG{mobispip/theme_divider})"]>
 			<li data-role="list-divider"><:titre_documents_joints:></li>
 			<BOUCLE_documents_joints(DOCUMENTS) {id_rubrique} {par num titre, date}>
 			<li>

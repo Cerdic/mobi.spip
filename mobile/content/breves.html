@@ -8,7 +8,7 @@
  *
 ]
 
-<ul data-role="listview" data-theme="d">
+<ul data-role="listview"[ data-theme="(#CONFIG{mobispip/theme_liste})"][ data-divider-theme="(#CONFIG{mobispip/theme_divider})"]>
 	<BOUCLE_breves(BREVES){!par date}{0,1000}>
 		[<li>
 			[(#LOGO_BREVE|image_passe_partout{80,80}|image_recadre{80,80}|image_aplatir{jpg,ffffff})]

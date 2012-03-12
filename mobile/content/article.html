@@ -65,7 +65,7 @@ href="#URL_DOCUMENT">(#FICHIER|copie_locale|image_reduire{0,100}|inserer_attribu
 	<hr />
 
 	<B_auteur_art>
-		<ul data-role="listview" data-inset="true">
+		<ul data-role="listview" data-inset="true"[ data-theme="(#CONFIG{mobispip/theme_liste})"][ data-divider-theme="(#CONFIG{mobispip/theme_divider})"]>
 			<li data-role="list-divider"><:mobispip:auteurs:></li>
 			<BOUCLE_auteur_art(AUTEURS) {id_article}>
 				<li><a href="#URL_AUTEUR">#NOM</a></li>
@@ -74,7 +74,7 @@ href="#URL_DOCUMENT">(#FICHIER|copie_locale|image_reduire{0,100}|inserer_attribu
 	</B_auteur_art>
 
 	<B_rub_art>
-		<ul data-role="listview" data-inset="true">
+		<ul data-role="listview" data-inset="true"[ data-theme="(#CONFIG{mobispip/theme_liste})"][ data-divider-theme="(#CONFIG{mobispip/theme_divider})"]>
 			<li data-role="list-divider"><:mobispip:meme_rubrique:></li>
 			<BOUCLE_rub_art(RUBRIQUES) {id_rubrique}>
 			<li><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></li>
@@ -85,7 +85,7 @@ href="#URL_DOCUMENT">(#FICHIER|copie_locale|image_reduire{0,100}|inserer_attribu
 
 	[(#REM) MENU MOTS CLES ]
 	<B_mots_de_art>
-		<ul data-role="listview" data-inset="true">
+		<ul data-role="listview" data-inset="true"[ data-theme="(#CONFIG{mobispip/theme_liste})"][ data-divider-theme="(#CONFIG{mobispip/theme_divider})"]>
 			<li data-role="list-divider"><:mots_clefs:></li>
 			<BOUCLE_mots_de_art(MOTS) {id_article}>
 				<li><a href="#URL_MOT">#TITRE</a></li>

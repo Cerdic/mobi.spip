@@ -16,8 +16,8 @@
 
 <INCLURE{fond=inclure/listes/articles,nb=10,titre=<:mobispip:a_la_une:>}>
 
-<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="d">
-	<li data-role="list-divider"><:mobispip:sommaire:></li>
+<ul data-role="listview" data-inset="true"[ data-theme="(#CONFIG{mobispip/theme_liste})"][ data-divider-theme="(#CONFIG{mobispip/theme_divider})"]>
+	<li data-role="list-divider" ><:mobispip:sommaire:></li>
 
 	<BOUCLE_menu_princ(RUBRIQUES) {racine} {par num titre}>
 		[<li><a href="#URL_RUBRIQUE">(#TITRE)</a></li>]
