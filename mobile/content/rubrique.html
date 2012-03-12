@@ -8,9 +8,11 @@
 	<ul data-role="listview"[ data-theme="(#CONFIG{mobispip/theme_liste})"][ data-divider-theme="(#CONFIG{mobispip/theme_divider})"]>
 		<BOUCLE_actus(ARTICLES) {id_rubrique}{!par date}{0,100}>
 			[<li>
-				[(#LOGO_ARTICLE|image_passe_partout{80,80}|image_recadre{80,80}|image_aplatir{jpg,ffffff})]
-				<h3><a href="#URL_ARTICLE">(#TITRE)</a></h3>
-				[<p>(#INTRODUCTION|couper{80})</p>]
+				<a href="#URL_ARTICLE">
+					[(#LOGO_ARTICLE|image_passe_partout{80,80}|image_recadre{80,80}|image_aplatir{jpg,ffffff})]
+					<h3>(#TITRE)</h3>
+					[<p>(#INTRODUCTION|couper{80})</p>]
+				</a>
 			</li>]
 		</BOUCLE_actus>
 	</ul>
