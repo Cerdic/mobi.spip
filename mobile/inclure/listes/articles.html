@@ -11,9 +11,11 @@ Date: 14/12/10 - 23:54
 	[<li data-role="list-divider">(#ENV{titre,''})</li>]
 	<BOUCLE_actus(ARTICLES) {!par #ENV{par,date}}{id_auteur?}{id_mot?}{recherche?}{0,#ENV{nb,100}}>
 		[<li>
-			[(#LOGO_ARTICLE|image_passe_partout{80,80}|image_recadre{80,80}|image_aplatir{jpg,ffffff})]
-			<h3><a href="#URL_ARTICLE">(#TITRE)</a></h3>
-			[<p>(#INTRODUCTION|couper{80})</p>]
+			<a href="#URL_ARTICLE">
+				[(#LOGO_ARTICLE|image_passe_partout{80,80}|image_recadre{80,80}|image_aplatir{jpg,ffffff})]
+				<h3>(#TITRE)</h3>
+				[<p>(#INTRODUCTION|couper{80})</p>]
+			</a>
 		</li>]
 	</BOUCLE_actus>
 </ul>
