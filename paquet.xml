@@ -13,6 +13,7 @@
 	<licence lien="http://www.gnu.org/licenses/gpl-3.0.html">GNU/GPL</licence>
 	<copyright>2010 - 2012</copyright>
 	<lib nom="jquery.mobile-1.0.1" lien="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.zip" />
+	<lib nom="jquery.mobile-1.1.0-rc.1" lien="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.zip" />
 	<necessite nom="Zcore" compatibilite="[2.0.0-dev;]" />
 	<pipeline nom="affichage_final" inclure="mobispip_options.php" />
 </paquet>

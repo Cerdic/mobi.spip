@@ -9,7 +9,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'accueil' => 'accueil',
 	'annuler' => 'Annuler',
 	'auteurs' => 'Les auteurs',
-	
+
 	// B
 	'breves' => 'Brèves',
 
@@ -21,21 +21,22 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'config_theme_liste' => 'Thème des listes',
 	'config_theme_inset' => 'Arrondis sur les listes',
 	'config_theme_divider' => 'Thème des divisions de listes',
-	
+	'config_jqm_version' => 'Version à utiliser',
+
 	// I
 	'infos'=> 'Infos',
-	
+
 	// M
 	'meme_rubrique' => 'Dans la même rubrique',
 	'mobispip' => 'mobi.SPIP',
-	
+
 	// R
 	'retour' => 'retour',
-	
+
 	// S
 	'site' => 'A propos du site',
 	'sommaire' => 'Sommaire',
-	
+
 	// V
 	'version_classique' => 'Version classique du site',
 	'version_mobile' => 'Version mobile du site'
