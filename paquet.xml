@@ -1,7 +1,7 @@
 <paquet
 	prefix="mobispip"
 	categorie="divers"
-	version="0.3.0"
+	version="0.4.0"
 	etat="dev"
 	compatibilite="[2.1.0 ;3.0.*]"
 	logo="prive/themes/spip/images/bluewhales-32.png"
@@ -9,11 +9,11 @@
 	<nom>mobi.spip</nom>
 	<auteur lien="http://yterium.com">Cedric</auteur>
 	<auteur lien="http://spip-contrib.net/jfefe">jfefe</auteur>
-	<credit lien="http://http://jquerymobile.com/">jQuery mobile</credit>
+	<credit lien="http://www.jquerymobile.com/">jQuery mobile</credit>
 	<licence lien="http://www.gnu.org/licenses/gpl-3.0.html">GNU/GPL</licence>
 	<copyright>2010 - 2012</copyright>
 	<lib nom="jquery.mobile-1.0.1" lien="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.zip" />
-	<lib nom="jquery.mobile-1.1.0-rc.1" lien="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.zip" />
+	<lib nom="jquery.mobile-1.1.0" lien="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.zip" />
 	<necessite nom="Zcore" compatibilite="[2.0.0-dev;]" />
 	<pipeline nom="affichage_final" inclure="mobispip_options.php" />
 </paquet>

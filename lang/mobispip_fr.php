@@ -32,6 +32,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// R
 	'retour' => 'retour',
+	'rubrique_article' => 'Rubrique',
 
 	// S
 	'site' => 'A propos du site',
